@@ -4,15 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   mode: 'development',
   entry: {
-    index: {
-      import: './src/index.js',
-      dependOn: 'shared',
-    },
-    print: {
-      import: './src/another-module.js',
-      dependOn: 'shared',
-    },
-    shared: 'lodash',
+    index: './src/main.js',
   },
   devtool: 'inline-source-map',
   devServer: {
@@ -24,7 +16,7 @@ module.exports = {
     }),
   ],
   output: {
-    filename: '[name].bundle.js',
+    filename: '[name].[contenthash].js',
     path: path.resolve(__dirname, 'dist'),
     clean: true,
   },
